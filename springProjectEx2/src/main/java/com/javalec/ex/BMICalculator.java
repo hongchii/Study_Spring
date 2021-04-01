@@ -32,7 +32,7 @@ public class BMICalculator {
 		this.normal = normal;
 	}
 
-	public void serOverWeight(double overWeight) {
+	public void setOverWeight(double overWeight) {
 		this.overWeight = overWeight;
 	}
 
