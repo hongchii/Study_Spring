@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+
+	<bean id="logAop" class="com.javalec.ex.LogAop" />
+
+	<!-- aop 설정시작 -->
+	<aop:config>
+		<aop:aspect id="logger" ref="logAop"> <!-- ref 참조하고 있는 것. -->
+			<aop:pointcut id="publicM"
+				expression="whithin(com.javalec.ex.*)" />
+			<!-- pointcut id - 핵심코드의 이름 -->
+			<!-- com.javalec.ex안에 있는 모든 메서드에 적용을 하겠다. -->
+			<aop:around pointcut-ref="publicM" method="loggerAop" />
+			<!-- 어떤 기능을 줄거냐. loggerAop기능을 주겠다. -> 공통클래스 메서드. -->
+		</aop:aspect>
+	</aop:config>
+
+	<bean id="student" class="com.javalec.ex.Student">
+		<property name="name" value="홍길동" />
+		<property name="age" value="10" />
+		<property name="gradeNum" value="3" />
+		<property name="classNum" value="5" />
+	</bean>
+
+	<bean id="worker" class="com.javalec.ex.Worker">
+		<property name="name" value="홍길순" />
+		<property name="age" value="35" />
+		<property name="job" value="개발자" />
+	</bean>
+</beans>
