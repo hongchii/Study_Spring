@@ -52,6 +52,12 @@
 		</dependency>
 		<!-- 추가 끝 -->
 					
+		<!-- 커넥션풀설정 -->
+		<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP</artifactId>
+			<version>2.7.4</version>
+		</dependency>			
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
