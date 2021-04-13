@@ -20,7 +20,7 @@ import lombok.extern.log4j.Log4j;
 // java 설정을 사용하는 경우
 //@ContextConfiguration(classes= {RootConfig.class})
 @Log4j
-public class DataSourceTests {
+public class DataSourceTests {                                                                                                                                                                                                                                                        
 
 	@Setter(onMethod_ = { @Autowired })
 	private DataSource dataSource;
