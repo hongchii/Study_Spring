@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@include file="../includes/header.jsp"%>
+<!DOCTYPE html>
 
 <div class="row">
 	<div class="col-lg-12">
@@ -68,3 +69,26 @@
 <!-- /.row  -->
 <%@include file="../includes/footer.jsp"%>
 
+<script type="text/javascript">
+	$(document).ready(function() {
+		var formObj = $("form");
+
+		$("button").on("click", function(e) {
+			e.preventDefault();
+
+			var operation = $(this).data("oper");
+
+			console.log(operation);
+
+			if (operation === 'remove') {
+				formObj.attr("action", "/board/remove");
+			} else if (operation === "list") 
+				formObj.attr("action", "/board/list").attr("method", "get");
+				formObj.empty();
+			}
+			formObj.submit();
+		});
+
+	});
+</script>
+</html>
