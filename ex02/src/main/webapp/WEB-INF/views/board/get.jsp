@@ -6,7 +6,7 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">Board Register</h1>
+		<h1 class="page-header">Board Read</h1>
 	</div>
 	<!-- /.clo-lg-12 -->
 </div>
@@ -14,17 +14,9 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">Board Read</h1>
-	</div>
-	<!-- col-lg-12 -->
-</div>
-<!-- /.row -->
-
-<div class="row">
-	<div class="col-lg-12">
 		<div class="panel panel-default">
 
-			<div class="panel-heading">Board Read</div>
+			<div class="panel-heading">Board Read Page</div>
 			<!-- /.pannel-heading -->
 			<div class="panel-body">
 
@@ -39,13 +31,23 @@
 				</div>
 
 				<div class="form-group">
-					<label>Text area</label> <textarea class="form-control" rows="3" name="content" readonly="readonly">
-					
-					</textarea><input class="form-control" name="writer">
+					<label>Text area</label>
+					<textarea class="form-control" rows="3" name="content"
+						readonly="readonly">
+					<c:out value="${board.content }" />
+					</textarea>
 				</div>
-				<button type="submit" class="btn btn-default">Submit Button</button>
-				<button type="reset" class="btn btn-default">Reset Button</button>
-				</form>
+
+				<div class="form-group">
+					<label>Writer</label> <input class="form-control" name="writer"
+						value="<c:out value="${board.writer }"/>" readonly="readonly">
+				</div>
+
+				<button data-oper="modify" class="btn btn-default"
+					onclick="location.href='/board/modify?bno=<c:out value="${board.bno }"/>'">Modify</button>
+				<button data-oper="list" class="btn btn-info"
+					onclick="location.herf='/board/list'">List</button>
+
 			</div>
 			<!-- end panel-body -->
 		</div>
